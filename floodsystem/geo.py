@@ -44,3 +44,20 @@ def stations_by_river(stations):
                 commonriver.append(station.name)
         river2station[rivername] = commonriver
     return river2station
+
+"""Task 1E"""
+def rivers_by_station_number(stations, N):
+    """Empty list to be filled with stations"""
+    river_list = stations_by_river(stations)
+    river_stationnumber_list = []
+    for river in river_list:
+        len(river)
+        x = (river, len(river))
+        river_stationnumber_list.append(x)
+    """sorting by n stations"""
+    ordered = sorted_by_key(river_stationnumber_list, 1, reverse=True)
+    Final_list = ordered[:N]
+    for x in ordered[N:]:
+        if x[1] == Final_list[N-1][1]:
+            Final_list.append(x)
+    return Final_list

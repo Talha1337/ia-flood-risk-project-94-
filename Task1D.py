@@ -9,3 +9,7 @@ print(str(len(rivernames)) + " rivers with at least one station, first 10 alphab
 print(sorted(stations_by_river(stations)["River Aire"]))
 print(sorted(stations_by_river(stations)["River Cam"]))
 print(sorted(stations_by_river(stations)["River Thames"]))
+
+assert len(x) > 0
+assert sorted(x) == x
+assert len(stations_by_river(stations)) > 0

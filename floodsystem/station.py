@@ -7,6 +7,9 @@ for manipulating/modifying station data
 """
 
 
+# i dont think this is supposed to be here: from types import NoneType
+
+
 class MonitoringStation:
     """This class represents a river level monitoring station"""
 
@@ -42,6 +45,8 @@ class MonitoringStation:
 
     """Task 1F"""
     def typical_range_consistent(self):
+        if self.typical_range == None:
+            return False
         if self.typical_range[0] < self.typical_range[1]:
             return True
         else:

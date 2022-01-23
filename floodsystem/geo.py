@@ -49,14 +49,17 @@ def stations_by_river(stations):
 def rivers_by_station_number(stations, N):
     """Empty list to be filled with stations"""
     river_list = stations_by_river(stations)
+    """creating tuples of rivers and number of stations"""
     river_stationnumber_list = []
     for river in river_list:
         len(river)
         x = (river, len(river))
         river_stationnumber_list.append(x)
-    """sorting by n stations"""
+    """sorting by number of stations"""
     ordered = sorted_by_key(river_stationnumber_list, 1, reverse=True)
+    """Taking the first N terms"""
     Final_list = ordered[:N]
+    """Checking the for additional rivers with the same number of stations as the Nth station"""
     for x in ordered[N:]:
         if x[1] == Final_list[N-1][1]:
             Final_list.append(x)

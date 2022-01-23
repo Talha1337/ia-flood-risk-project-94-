@@ -45,16 +45,21 @@ class MonitoringStation:
 
     """Task 1F"""
     def typical_range_consistent(self):
+        """Check to see if the output is none, then check to see if the second values"""
         if self.typical_range == None:
             return False
-        if self.typical_range[0] < self.typical_range[1]:
-            return True
-        else:
+        elif self.typical_range[1] < self.typical_range[0]:
             return False
-        
+        else:
+            return True
+
+
+"""Task 1F"""        
 def inconsistent_typical_range_stations(stations):
+    """empty list to hold inconsistent stations"""
     inconsistent_list = []
     for station in stations:
+        """Checking for inconsistent stations then appending them to the empty list"""
         if station.typical_range_consistent() == False:
             inconsistent_list.append(station)
     return inconsistent_list

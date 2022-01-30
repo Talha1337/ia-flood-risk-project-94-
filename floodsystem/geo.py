@@ -54,7 +54,7 @@ def stations_by_river(stations):
             if station.river == rivername:
                 commonriver.append(station.name) 
         river2station[rivername] = commonriver 
-    return river2station 
+    return river2station
 
 """Task 1E"""
 def rivers_by_station_number(stations, N):

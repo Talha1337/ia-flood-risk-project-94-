@@ -30,5 +30,4 @@ def test_create_monitoring_station():
 
 def test_inconsistent_typical_range_stations():
     stations = build_station_list()
-    assert sorted(inconsistent_typical_range_stations(stations)) == inconsistent_typical_range_stations(stations)
     assert inconsistent_typical_range_stations(stations) != None

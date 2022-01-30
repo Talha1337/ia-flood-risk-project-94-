@@ -35,6 +35,7 @@ jobs:
 
       - name: Run unit tests using pytest
         run: pytest -v
+          pytest .
 
       - name: Run Deliverable 1 code
         run: |

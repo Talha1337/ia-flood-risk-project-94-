@@ -7,7 +7,7 @@ for manipulating/modifying station data
 """
 
 
-# i dont think this is supposed to be here: from types import NoneType
+# i dont think this is supposed to be here (what is this?) : from types import NoneType
 
 
 class MonitoringStation:

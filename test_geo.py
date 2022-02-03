@@ -21,6 +21,7 @@ def test_rivers_with_station():
     x = sorted(list(rivernames))
     assert len(x) > 0 #river names are included
     assert sorted(x) == x #river names are alphabetical
+    assert len(x) == len(set(x)) #river names should not have any duplicate entries, so a set of unique elements is made to check if their lengths are the same.
 
 def test_stations_by_river():
     stations = build_station_list()

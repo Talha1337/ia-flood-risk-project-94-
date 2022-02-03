@@ -26,3 +26,10 @@ def test_rivers_by_station_number():
     stations = build_station_list()
     assert len(rivers_by_station_number(stations, 10)) == 11
     assert (rivers_by_station_number(stations,10))[0][1] > (rivers_by_station_number(stations,10))[1][1]
+
+"""Task 1E"""
+def test_rivers_by_station_number():
+    """Build a list of stations"""
+    stations = build_station_list()
+    """Test to see if the function can be called"""
+    rivers_by_station_number(stations, 10)

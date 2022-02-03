@@ -6,6 +6,7 @@ from floodsystem.station import MonitoringStation
 from floodsystem.station import inconsistent_typical_range_stations
 stations = build_station_list()
 
+print("*** Task 1E: CUED Part IA Flood Warning System ***")
 """collect all inconsistent stations into a list"""
 list_of_inconsistent_stations = inconsistent_typical_range_stations(stations)
 """creating an empty list to fill"""

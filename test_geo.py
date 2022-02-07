@@ -44,7 +44,7 @@ def test_rivers_by_station_number():
     m_id = "test-m-id"
     label = "some station"
     coord = (-2.0, 4.0)
-    trange = (-2.3, 3.4445)
+    trange = (2.5, -3.4445) #inconsistent
     river = "River X"
     town = "My Town"
     s1 = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
@@ -52,7 +52,7 @@ def test_rivers_by_station_number():
     m_id = "test-m-id"
     label = "some station"
     coord = (-2.0, 4.0)
-    trange = (-2.3, 3.4445)
+    trange = (-3.4, -3.4445) #inconsistent
     river = "River Y"
     town = "My Town"
     s2 = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
@@ -60,7 +60,7 @@ def test_rivers_by_station_number():
     m_id = "test-m-id"
     label = "some station"
     coord = (-2.0, 4.0)
-    trange = (-2.3, 3.4445)
+    trange = None #inconsistent
     river = "River X"
     town = "My Town"
     s3 = MonitoringStation(s_id, m_id, label, coord, trange, river, town)

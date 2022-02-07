@@ -60,7 +60,7 @@ def test_inconsistent_typical_range_stations():
     m_id = "test-m-id"
     label = "some station"
     coord = (-2.0, 4.0)
-    trange = None
+    trange = None #inconsistent
     river = "River X"
     town = "My Town"
     s3 = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
@@ -85,4 +85,4 @@ def test_inconsistent_typical_range_stations():
     dummystation.append(s3)
     dummystation.append(s4)
     dummystation.append(s5)
-    assert inconsistent_typical_range_stations(dummystation) == ["some station", "some station", "some station"]
+    assert inconsistent_typical_range_stations(dummystation) == [s1, s2, s3]

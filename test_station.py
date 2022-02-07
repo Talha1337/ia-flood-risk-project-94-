@@ -35,7 +35,7 @@ def test_create_monitoring_station():
     m_id = "test-m-id"
     label = "some station"
     coord = (-2.0, 4.0)
-    trange = (2.3, -3.4445)
+    trange = (-2.3, 3.4445)
     river = "River X"
     town = "My Town"
     inconsistent_test_station_1 = MonitoringStation(s_id, m_id, label, coord, trange, river, town)

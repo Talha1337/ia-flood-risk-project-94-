@@ -1,7 +1,9 @@
 from distutils.command.build import build
+from multiprocessing import dummy
 from floodsystem.stationdata import build_station_list, update_water_levels
 from floodsystem.geo import *
 from floodsystem.station import inconsistent_typical_range_stations
+from floodsystem.station import MonitoringStation
 
 def test_stations_by_distance():
     stations = build_station_list()
@@ -36,5 +38,54 @@ def test_rivers_by_station_number():
 def test_rivers_by_station_number():
     """Build a list of stations"""
     stations = build_station_list()
+    dummystation = []
     """Test to see if the function can be called"""
+    s_id = "test-s-id"
+    m_id = "test-m-id"
+    label = "some station"
+    coord = (-2.0, 4.0)
+    trange = (-2.3, 3.4445)
+    river = "River X"
+    town = "My Town"
+    s1 = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
+    s_id = "test-s-id"
+    m_id = "test-m-id"
+    label = "some station"
+    coord = (-2.0, 4.0)
+    trange = (-2.3, 3.4445)
+    river = "River Y"
+    town = "My Town"
+    s2 = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
+    s_id = "test-s-id"
+    m_id = "test-m-id"
+    label = "some station"
+    coord = (-2.0, 4.0)
+    trange = (-2.3, 3.4445)
+    river = "River X"
+    town = "My Town"
+    s3 = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
+    s_id = "test-s-id"
+    m_id = "test-m-id"
+    label = "some station"
+    coord = (-2.0, 4.0)
+    trange = (-2.3, 3.4445)
+    river = "River X"
+    town = "My Town"
+    s4 = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
+    s_id = "test-s-id"
+    m_id = "test-m-id"
+    label = "some station"
+    coord = (-2.0, 4.0)
+    trange = (-2.3, 3.4445)
+    river = "River Y"
+    town = "My Town"
+    s5 = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
+    dummystation.append(s1)
+    dummystation.append(s2)
+    dummystation.append(s3)
+    dummystation.append(s4)
+    dummystation.append(s5)
     rivers_by_station_number(stations, 10)
+    assert len(dummystation) == 5
+    assert len(rivers_by_station_number(dummystation, 2)) == 2
+    assert rivers_by_station_number(dummystation, 2)[0] == ("River X", 3)

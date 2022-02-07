@@ -63,7 +63,10 @@ def rivers_by_station_number(stations, N):
     """creating tuples of rivers and number of stations"""
     river_stationnumber_list = []
     for river in river_list:
+<<<<<<< HEAD
         len(river)
+=======
+>>>>>>> 4488e0a (Task 1E fix)
         x = (river, len(river_list[river]))
         river_stationnumber_list.append(x)
     """sorting by number of stations"""

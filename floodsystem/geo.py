@@ -64,7 +64,7 @@ def rivers_by_station_number(stations, N):
     river_stationnumber_list = []
     for river in river_list:
         len(river)
-        x = (river, len(river))
+        x = (river, len(river_list[river]))
         river_stationnumber_list.append(x)
     """sorting by number of stations"""
     ordered = sorted_by_key(river_stationnumber_list, 1, reverse=True)

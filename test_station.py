@@ -29,17 +29,17 @@ def test_create_monitoring_station():
     assert s.town == town
 
     """Task 1F"""
-    assert s.typical_range_consistent == True
+    assert s.typical_range_consistent() == True
     """Create stations with inconsistent data and then assert if they are false"""
     s_id = "test-s-id"
     m_id = "test-m-id"
     label = "some station"
     coord = (-2.0, 4.0)
-    trange = (-2.3, 3.4445)
+    a = (2.3, -3.4445)
     river = "River X"
     town = "My Town"
-    inconsistent_test_station_1 = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
-    assert inconsistent_test_station_1.typical_range_consistent == False
+    inconsistent_test_station_1 = MonitoringStation(s_id, m_id, label, coord, a, river, town)
+    assert inconsistent_test_station_1.typical_range_consistent() == False
 
     s_id = "test-s-id"
     m_id = "test-m-id"
@@ -49,7 +49,7 @@ def test_create_monitoring_station():
     river = "River X"
     town = "My Town"
     inconsistent_test_station_2 = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
-    assert inconsistent_test_station_2.typical_range_consistent == False
+    assert inconsistent_test_station_2.typical_range_consistent() == False
     
 
 

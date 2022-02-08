@@ -52,6 +52,19 @@ class MonitoringStation:
             return False
         else:
             return True
+    def relative_water_level(self):
+
+        if self.typical_range == None:
+            return None
+        elif self.typical_range[0] > self.typical_range[1]:
+            return None
+        elif self.latest_level == None:
+            return None
+        else:
+            latest_water_level_within_range = self.latest_level - self.typical_range[0]
+            typical_water_range = self.typical_range[1] - self.typical_range[0]
+            return latest_water_level_within_range/typical_water_range
+
 
 
 """Task 1F"""        

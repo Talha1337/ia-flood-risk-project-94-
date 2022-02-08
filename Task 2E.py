@@ -12,6 +12,7 @@ stationlist = []
 for station in x:
     stationlist.append(station[0])
 for station in stationlist:
-    plot_water_levels(station, 5, station.typical_range)
+    plot_water_levels(station, 10, station.typical_range)
+
 
 

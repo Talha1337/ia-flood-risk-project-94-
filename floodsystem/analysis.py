@@ -14,7 +14,6 @@ def polyfit(dates, levels, p):
 def plot_water_level_with_fit(station, dates, levels, p):
     leveldata = fetch_measure_levels(station.measure_id, dates)
     num2datelist = []
-    print(leveldata)
     for x in leveldata[0]:
         num2datelist.append(plt.dates.date2num(x))
     x = np.array(num2datelist)

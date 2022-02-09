@@ -14,6 +14,6 @@ def plot_water_levels(station, dates, levels):
     plt.xticks(rotation=45);
     plt.plot(time, lowerlimit)
     plt.plot(time, upperlimit)
-    plt.show()
     plt.tight_layout()
+    plt.show()
 

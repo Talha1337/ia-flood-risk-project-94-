@@ -3,7 +3,7 @@ def stations_level_over_threshold(stations, tol):
     list_of_over_threshold = []
     for station in stations:
         name_and_relative_water = []
-        if station.relative_water_level() == None:
+        if station.relative_water_level() == None or station.relative_water_level() > 50:
             pass
         elif station.relative_water_level() > tol:
             name_and_relative_water.append(station.name)
@@ -19,7 +19,7 @@ def stations_level_over_threshold_noname(stations, tol):
     list_of_over_threshold = []
     for station in stations:
         name_and_relative_water = []
-        if station.relative_water_level() == None:
+        if station.relative_water_level() == None or station.relative_water_level() > 50:
             pass
         elif station.relative_water_level() > tol:
             name_and_relative_water.append(station)

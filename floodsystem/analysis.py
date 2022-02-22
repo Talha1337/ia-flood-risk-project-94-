@@ -4,13 +4,12 @@ from matplotlib import dates
 from floodsystem.datafetcher import fetch_measure_levels
 import matplotlib.pyplot as pt
 def polyfit(dates, levels, p):
-    x = [plt.dates.date2num(dates)]
-    p_coeff = np.polyfit((x - x[0]) , levels, p)
+    num2datelist = [plt.dates.date2num(date) for date in dates]
+    x = np.array(num2datelist - num2datelist[0])
+    y = np.array(levels)
+    p_coeff = np.polyfit(x , y, p)
     poly = np.poly1d(p_coeff)
-    plt.plot(x, levels)
-    x1 = np.linspace(x[0], x[-1], 10)
-    plt.plot(x1, poly(x1 - x[0]))
-    plt.show()
+    return (poly, num2datelist[0])
 def plot_water_level_with_fit(station, dates, levels, p):
     leveldata = fetch_measure_levels(station.measure_id, dates)
     num2datelist = []

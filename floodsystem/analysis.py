@@ -13,7 +13,6 @@ def plot_water_level_with_fit(station, dates, levels, p):
     leveldata = fetch_measure_levels(station.measure_id, dates)
     num2datelist = []
     for x in leveldata[0]:
-        print(type(x))
         num2datelist.append(plt.dates.date2num(x))
     x = np.array(num2datelist)
     y = leveldata[1]

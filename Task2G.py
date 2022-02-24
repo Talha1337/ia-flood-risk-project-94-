@@ -77,10 +77,18 @@ for x in moderate_risk_set:
     if x in low_risk_set:
         low_risk_set.remove(x)
 
-severe_risk_set.remove(None)
-high_risk_set.remove(None)
-moderate_risk_set.remove(None)
-low_risk_set.remove(None)
+if None in severe_risk_set:
+    severe_risk_set.remove(None)
+    
+if None in high_risk_set:
+    high_risk_set.remove(None)
+    
+if None in moderate_risk_set:
+    moderate_risk_set.remove(None)
+    
+if None in low_risk_set:
+    low_risk_set.remove(None)
+
 
 print("\n Low risk:\n")
 print(set(low_risk_set))

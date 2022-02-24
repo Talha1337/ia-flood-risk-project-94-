@@ -16,21 +16,35 @@ severe_risk = []
 high_risk = []
 moderate_risk = []
 low_risk = []
-"""for station in stations:
-    if """
-for x in stations_highest_rel_level(stations, len(stations)):
-    if x[1] < 1.0:
+
+for station in stations:
+    if station.relative_water_level < 1.0:
         low_risk.append(x[0])
-    if x[1] < 2.0:
+    if station.relative_water_level < 2.0:
         moderate_risk.append(x[0])
-    if x[1] < 3.0:
+    if station.relative_water_level < 3.0:
         high_risk.append(x[0])
     else:
         severe_risk.append(x[0])
+ 
+for station in station:
+
+
+    
+    for x in stations_highest_rel_level(stations, len(stations)):
+        if x[1] < 1.0:
+            low_risk.append(x[0])
+        if x[1] < 2.0:
+            moderate_risk.append(x[0])
+        if x[1] < 3.0:
+            high_risk.append(x[0])
+        else:
+            severe_risk.append(x[0])
+
 
 print("\n Low risk:\n")
 print(low_risk)
-print("\n Moderate risk:\n")
+print("\n moderate risk:\n")
 print(moderate_risk)
 print("\n High risk:\n")
 print(high_risk)

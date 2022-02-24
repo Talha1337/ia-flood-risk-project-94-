@@ -108,3 +108,33 @@ def test_inconsistent_typical_range_stations():
     dummystation.append(s4)
     dummystation.append(s5)
     assert inconsistent_typical_range_stations(dummystation) == [s1, s2, s3]
+
+def test_relative_water_level():
+    """Task 2B"""
+    s_id = "test-s-id"
+    m_id = "test-m-id"
+    label = "some station"
+    coord = (-2.0, 4.0)
+    trange = (2, 3)
+    river = "River X"
+    town = "My Town"
+
+
+    s1 = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
+    s1.latest_level = None
+    assert s1.relative_water_level() == None
+
+    s_id = "test-s-id"
+    m_id = "test-m-id"
+    label = "some station"
+    coord = (-2.0, 4.0)
+    trange = (2, 3)
+    river = "River X"
+    town = "My Town"
+    s1 = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
+    
+    s1.latest_level = 3
+
+    assert s1.relative_water_level() == 1
+
+

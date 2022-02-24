@@ -9,7 +9,8 @@ def stations_level_over_threshold(stations, tol):
             name_and_relative_water.append(station.name) 
             name_and_relative_water.append(station.relative_water_level())
             list_of_over_threshold.append(tuple(name_and_relative_water)) #tuple of name and relative water level added to the list.
-    return list_of_over_threshold #loop complete, all relative water levels now given in tuples.
+    list_of_over_threshold_sorted = sorted_by_key(list_of_over_threshold, 1, reverse=True) #sorted by highest water level.
+    return list_of_over_threshold_sorted #loop complete, all relative water levels now given in tuples.
 def stations_highest_rel_level(stations, N):
     station_list = stations_level_over_threshold(stations, -50) #Form list of stations over an extremely small threshold value, from which it can be reasonably assumed all stations will have a greater water level than this. 
     station_leaderboard = sorted_by_key(station_list, 1, reverse=True) #Sorted based on level of water in station, returning a list of highest to lowest.

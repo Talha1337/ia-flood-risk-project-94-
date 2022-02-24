@@ -7,12 +7,11 @@ from floodsystem.plot import plot_water_levels
 
 stations = build_station_list()
 update_water_levels(stations)
-x = stations_highest_rel_level_noname(stations,5)
+x = stations_highest_rel_level_noname(stations,5) #acts in same way as stations_highest_rel_level but now it returns MonitoringStation objects rather than the station.name object.
 stationlist = []
 for station in x:
-    stationlist.append(station[0])
+    stationlist.append(station[0]) #create a list of the stations
 for station in stationlist:
-    plot_water_levels(station, 10, station.typical_range)
-
+    plot_water_levels(station, 10, station.typical_range) #
 
 

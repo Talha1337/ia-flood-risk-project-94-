@@ -8,11 +8,11 @@ import matplotlib.pyplot as plt
 import matplotlib as pt
 import datetime
 stations = build_station_list()
-update_water_levels(stations)
-"""
+update_water_levels(stations) #update water levels to most recent water levels.
+
 for x in stations_highest_rel_level_noname(stations, 5):
-    plot_water_level_with_fit(x[0], datetime.timedelta(2), x[0].typical_range, 4)
-    """
+    plot_water_level_with_fit(x[0], 2, x[0].typical_range, 4)
+    
     
 
 t = [datetime.datetime(2016, 12, 30), datetime.datetime(2016, 12, 31), datetime.datetime(2017, 1, 1),

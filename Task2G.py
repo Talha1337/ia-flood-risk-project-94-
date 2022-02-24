@@ -41,25 +41,59 @@ for station in stations:
         high_risk.append(x[0])
     else:
         severe_risk.append(x[0])
- 
-for station in station:
 
-
-
-    for x in stations_highest_rel_level(stations, len(stations)):
-        if x[1] < 1.0:
-            low_risk.append(x[0])
-        if x[1] < 2.0:
-            moderate_risk.append(x[0])
-        if x[1] < 3.0:
-            high_risk.append(x[0])
+"""
+for x in stations_highest_rel_level_noname(stations, len(stations)):
+        if x[1] < 1.0: #and x[0] not in moderate_risk and not in high_risk and not in severe_risk:
+            low_risk.append(x[0].town)
+        elif x[1] < 2.0: #and x[0] not in high_risk or severe_risk:
+            moderate_risk.append(x[0].town)
+        elif x[1] < 3.0: #and x[0] not in severe_risk:
+            high_risk.append(x[0].town)
         else:
-            severe_risk.append(x[0])
+            severe_risk.append(x[0].town)
+
+
+severe_risk_set = set(severe_risk)
+high_risk_set = set(high_risk)
+moderate_risk_set = set(moderate_risk)
+low_risk_set = set(low_risk)
+
+for x in severe_risk_set:
+    if x in high_risk_set:
+        high_risk_set.remove(x)
+    if x in moderate_risk_set:
+        moderate_risk_set.remove(x)
+    if x in low_risk_set:
+        low_risk_set.remove(x)
+
+for x in high_risk_set:
+    if x in moderate_risk_set:
+        moderate_risk_set.remove(x)
+    if x in low_risk_set:
+        low_risk_set.remove(x)
+
+for x in moderate_risk_set:
+    if x in low_risk_set:
+        low_risk_set.remove(x)
+
+print("\n Low risk:\n")
+print(set(low_risk_set))
+print("\n moderate risk:\n")
+print(set(moderate_risk_set))
+print("\n High risk:\n")
+print(set(high_risk_set))
+print("\n Severe risk: \n")
+print(set(severe_risk_set))
+
+
 """
 
 t = [datetime.datetime(2016, 12, 30), datetime.datetime(2016, 12, 31), datetime.datetime(2017, 1, 1),
      datetime.datetime(2017, 1, 2), datetime.datetime(2017, 1, 3), datetime.datetime(2017, 1, 4),
      datetime.datetime(2017, 1, 5)]
+"""
+"""
 for x in stations_highest_rel_level_noname(stations, len(stations)):
     leveldata = fetch_measure_levels(x[0].measure_id, datetime.timedelta(2))
     num2datelist = []
@@ -69,15 +103,25 @@ for x in stations_highest_rel_level_noname(stations, len(stations)):
     y = leveldata[1]
     p_coeff = np.polyfit(x - x[0] , y, 3)
     poly = np.poly1d(p_coeff)
-
-
+"""
+"""
+counter  =0
+for x in stations_highest_rel_level_noname(stations, len(stations)):
+    dates, levels = fetch_measure_levels( x[0].measure_id, datetime.timedelta(2))
+    if x[0].measure_id == None:
+        pass
+    elif levels[0] > levels[1]:
+        counter += 1
+        print(counter)
 
 
 print("\n Low risk:\n")
-print(low_risk)
+print(set(low_risk))
 print("\n moderate risk:\n")
-print(moderate_risk)
+print(set(moderate_risk))
 print("\n High risk:\n")
-print(high_risk)
+print(set(high_risk))
 print("\n Severe risk: \n")
-print(severe_risk)
+print(set(severe_risk))
+
+"""

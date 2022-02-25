@@ -63,9 +63,6 @@ def linear_regression(station, dates):
         return False"""
 
          
-#if levels_and_dates[1][0] > levels_and_dates[1][-1]:
-#continue
-
 
 counter = 0
 for x in stations_highest_rel_level_noname(stations, len(stations)):
@@ -85,6 +82,7 @@ high_risk_set = set(high_risk)
 moderate_risk_set = set(moderate_risk)
 low_risk_set = set(low_risk)
 
+"""Ensuring that a town only appears in the severest warning section"""
 for x in severe_risk_set:
     if x in high_risk_set:
         high_risk_set.remove(x)
@@ -125,42 +123,3 @@ print(set(high_risk_set))
 print("\n Severe risk: \n")
 print(set(severe_risk_set))
 print(len(list(low_risk_set)))
-
-"""
-
-t = [datetime.datetime(2016, 12, 30), datetime.datetime(2016, 12, 31), datetime.datetime(2017, 1, 1),
-     datetime.datetime(2017, 1, 2), datetime.datetime(2017, 1, 3), datetime.datetime(2017, 1, 4),
-     datetime.datetime(2017, 1, 5)]
-"""
-"""
-for x in stations_highest_rel_level_noname(stations, len(stations)):
-    leveldata = fetch_measure_levels(x[0].measure_id, datetime.timedelta(2))
-    num2datelist = []
-    for x in leveldata[0]:
-        num2datelist.append(pt.dates.date2num(x))
-    x = np.array(num2datelist)
-    y = leveldata[1]
-    p_coeff = np.polyfit(x - x[0] , y, 3)
-    poly = np.poly1d(p_coeff)
-"""
-"""
-counter  =0
-for x in stations_highest_rel_level_noname(stations, len(stations)):
-    dates, levels = fetch_measure_levels( x[0].measure_id, datetime.timedelta(2))
-    if x[0].measure_id == None:
-        pass
-    elif levels[0] > levels[1]:
-        counter += 1
-        print(counter)
-
-
-print("\n Low risk:\n")
-print(set(low_risk))
-print("\n moderate risk:\n")
-print(set(moderate_risk))
-print("\n High risk:\n")
-print(set(high_risk))
-print("\n Severe risk: \n")
-print(set(severe_risk))
-
-"""

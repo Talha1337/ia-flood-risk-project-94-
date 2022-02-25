@@ -43,15 +43,41 @@ for station in stations:
         severe_risk.append(x[0])
 
 """
+"""
+def linear_regression(station, dates):
+    try:
+        leveldata = fetch_measure_levels(station.measure_id, datetime.timedelta(days = dates))
+    except:
+        return False
+    num2datelist = [] 
+    for x in leveldata[0]:
+        num2datelist.append(pt.dates.date2num(x))
+    if num2datelist == []:
+        return False 
+    x = np.array(num2datelist - num2datelist[-1]) 
+    y = np.array(leveldata[1])
+    p_coeff = np.polyfit(x, y, 1)
+    if p_coeff[0] >= 0:
+        return True
+    else:
+        return False"""
+
+         
+#if levels_and_dates[1][0] > levels_and_dates[1][-1]:
+#continue
+
+
+counter = 0
 for x in stations_highest_rel_level_noname(stations, len(stations)):
-        if x[1] < 1.0: #and x[0] not in moderate_risk and not in high_risk and not in severe_risk:
-            low_risk.append(x[0].town)
-        elif x[1] < 2.0: #and x[0] not in high_risk or severe_risk:
-            moderate_risk.append(x[0].town)
-        elif x[1] < 3.0: #and x[0] not in severe_risk:
-            high_risk.append(x[0].town)
-        else:
-            severe_risk.append(x[0].town)
+
+    if x[1] < 1.0: #and x[0] not in moderate_risk and not in high_risk and not in severe_risk:
+        low_risk.append(x[0].town)
+    elif x[1] < 2.0: #and x[0] not in high_risk or severe_risk:
+        moderate_risk.append(x[0].town)
+    elif x[1] < 3.0: #and x[0] not in severe_risk:
+        high_risk.append(x[0].town)
+    else:
+        severe_risk.append(x[0].town)
 
 
 severe_risk_set = set(severe_risk)
@@ -98,7 +124,7 @@ print("\n High risk:\n")
 print(set(high_risk_set))
 print("\n Severe risk: \n")
 print(set(severe_risk_set))
-
+print(len(list(low_risk_set)))
 
 """
 

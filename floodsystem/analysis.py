@@ -10,6 +10,7 @@ def polyfit(dates, levels, p):
     p_coeff = np.polyfit(x, y, p) #Creates least squares polynomial fit for the x and y values, with order p polynomial.
     poly = np.poly1d(p_coeff) #forms a poly1d object from the list of coefficients provided from the p_coeff variable.
     return (poly, x_raw[0]) #returns the poly1d object and the amount by which the dates axis was shifted. 
+
 def plot_water_level_with_fit(station, dates, levels, p):
     leveldata = fetch_measure_levels(station.measure_id, datetime.timedelta(days = dates)) #fetches measure levels over the past two days for a station.
     num2datelist = [] #initialise empty list for number to date.
@@ -27,3 +28,4 @@ def plot_water_level_with_fit(station, dates, levels, p):
     x1 = np.linspace(x[0], x[-1], 30) #form uniform range of x values which can be applied to the poly1d object.
     pt.plot(x1, poly(x1)) # plot polynomial.
     pt.show() #show overall plot. 
+    return True
